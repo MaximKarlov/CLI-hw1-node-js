@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 const listContacts = async () => {
   const list = await fs
     .readFile(contactsPath, 'utf-8')
-    .then(data => console.log(JSON.parse(data)))
+    .then(data => console.table(JSON.parse(data)))
     .catch(err => console.log(err));
   return list;
 };
@@ -17,7 +17,7 @@ const getContactById = async contactId => {
     })
     .then(contacts => {
       const searchContacts = contacts.filter(el => el.id === contactId);
-      if (searchContacts.length > 0) return console.log(searchContacts);
+      if (searchContacts.length > 0) return console.table(searchContacts);
       else return console.log('No contacts found');
     })
     .catch(err => console.log(err));
@@ -43,6 +43,7 @@ const removeContact = async contactId => {
       } else console.log('No contacts found');
     })
     .catch(err => console.log(err));
+  listContacts();
 };
 
 const addContact = async newUser => {
