@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 const listContacts = async () => {
   const list = await fs
     .readFile(contactsPath, 'utf-8')
-    .then(data => console.log(data))
+    .then(data => console.log(JSON.parse(data)))
     .catch(err => console.log(err));
   return list;
 };
@@ -25,6 +25,7 @@ const getContactById = async contactId => {
 
 const removeContact = async contactId => {
   let flag = null;
+  let searchContacts = [];
   await fs
     .readFile(contactsPath, 'utf-8')
     .then(contacts => {
@@ -33,16 +34,12 @@ const removeContact = async contactId => {
     .then(contacts => {
       contacts.map(el => {
         if (el.id === contactId) {
-          const searchContacts = contacts.filter(el => el.id !== contactId);
-          if (searchContacts.length > 0) {
-            fs.writeFile(contactsPath, JSON.stringify(searchContacts));
-            return (flag = true);
-          }
+          return (searchContacts = contacts.filter(el => el.id !== contactId));
         }
-        return (flag = false);
       });
-      if (flag === true) {
-        console.log('Contacts deleted successfully');
+      if (searchContacts.length > 0) {
+        fs.writeFile(contactsPath, JSON.stringify(searchContacts));
+        console.log('Contacts delete successfully');
       } else console.log('No contacts found');
     })
     .catch(err => console.log(err));
@@ -60,6 +57,8 @@ const addContact = async newUser => {
     })
     .catch(err => console.log(err));
   fs.writeFile(contactsPath, JSON.stringify(contactsArray));
+  console.log('Contacts added successfully');
+  listContacts();
 };
 
 module.exports = { listContacts, addContact, getContactById, removeContact };
