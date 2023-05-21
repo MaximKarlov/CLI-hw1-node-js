@@ -3,13 +3,13 @@ CLI додаток...
 Посилання на скріншоти виконання частини додатку, а також у папці ScreenShot
 
 ////////////Виконання команди "LIST"////////////////
-https://monosnap.com/file/OOH5ZuKqNe0aMYv459BAJUusk8ShYK
+https://monosnap.com/file/O81avoeMPWhotydQworSkxW2ZWkfbz
 
 ////////////Виконання команди "ADD"////////////////
-https://monosnap.com/file/gBQHw4Scij0jiFBUnQId7wWc12TSuN
+https://monosnap.com/file/buCD77UQeZtAhGH7q4jgzmnRJuNADx
 
 ////////////Виконання команди "GetOnId"////////////////
-https://monosnap.com/file/XQFwtwUsagypN95DucdqvRccVRpz0g
+https://monosnap.com/file/3UhHjhX33YGd5LvzlC2DmdoKBJXnIR
 
 ////////////Виконання команди "Remove"////////////////
-https://monosnap.com/file/q9Xz9YfMAshS4Fdw8yTm1qlMzrPmSe
+https://monosnap.com/file/j6wEVGdDkWKkny8g4VcI2VDcWxErnr
