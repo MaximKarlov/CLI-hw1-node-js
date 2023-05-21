@@ -1,4 +1,5 @@
 const { Command } = require('commander');
+const shortid = require('shortid');
 const list = require('./contacts.js');
 const program = new Command();
 program
@@ -23,6 +24,9 @@ function invokeAction({ action, id, name, email, phone }) {
       break;
 
     case 'add':
+      if (id === undefined) {
+        id = shortid.generate();
+      }
       newUser = {
         id,
         name,
