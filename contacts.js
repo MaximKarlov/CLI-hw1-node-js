@@ -1,4 +1,5 @@
 const contactsPath = './db/contacts.json';
+const shortid = require('shortid');
 const fs = require('fs').promises;
 
 const listContacts = async () => {
@@ -42,8 +43,18 @@ const removeContact = async contactId => {
   listContacts();
 };
 
-const addContact = async newUser => {
+const addContact = async ({ id, name, email, phone }) => {
   try {
+    if (id === undefined) {
+      id = shortid.generate();
+    }
+    newUser = {
+      id,
+      name,
+      email,
+      phone,
+    };
+
     const contactsList = await fs.readFile(contactsPath, 'utf-8');
     const contacts = JSON.parse(contactsList);
     contacts.push(newUser);
